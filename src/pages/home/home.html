@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Inicio de Sesion</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form  [formGroup]="formSignIn" (ngSubmit)="signIn()" novalidate>
+        <ion-list>
+          <ion-item>
+            <ion-label stacked>E-mail:</ion-label>
+            <ion-input formControlName="email" type="text" placeholder="email"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="formSignIn.get('email').errors && formSignIn.get('email').dirty">
+            <p color="danger" ion-text *ngIf="formSignIn.get('email').hasError('required')">El campo es obligatorio</p>
+            <p color="danger" ion-text *ngIf="formSignIn.get('email').hasError('email')">Direccion de email no valida</p>
+          </ion-item>
+            <ion-item>
+              <ion-label stacked>Password:</ion-label>
+              <ion-input formControlName="password" type="password" placeholder="password"></ion-input>
+            </ion-item>
+            <ion-item *ngIf="formSignIn.get('password').errors && formSignIn.get('password').dirty">
+              <p color="danger" ion-text *ngIf="formSignIn.get('password').hasError('required')">El campo es obligatorio</p>
+            </ion-item>
+            
+        </ion-list>
+        <div padding>
+          <button ion-button block  type="submit" [disabled]="formSignIn.invalid">Iniciar Sesion </button>
+          
+        </div>
+      </form>
+      <button ion-button block clear (click)="goToPageCreateAccount()">Registrarse</button>
+</ion-content>

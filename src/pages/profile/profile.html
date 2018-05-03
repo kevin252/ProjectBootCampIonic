@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-item>
+        <ion-title>Perfil</ion-title>
+        <button ion-button clear item-end (click)="signOut()">Cerrar Sesion</button>
+    </ion-item>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-item>
+  <button ion-button (click)="takePicture()" full><ion-icon name="camera"></ion-icon></button>
+</ion-item>
+<ion-item *ngIf="user">
+  <div >
+    <img *ngIf="user.image" [src]="user.image.url" alt="">
+    <p *ngIf="!user.image">No se tomo ninguna foto</p>
+  </div>
+</ion-item>
+</ion-content>
