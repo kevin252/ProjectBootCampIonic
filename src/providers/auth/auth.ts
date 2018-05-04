@@ -41,7 +41,7 @@ export class AuthProvider {
 	alertFailSignIn() {
 		let prompt = this.alertCtrl.create({
 			title: 'Error',
-			message: 'Credenciales no validas',
+			message: 'El usuario o contraseña no pertenecen a un usuario',
 			buttons: [
 				{
 					text: 'OK'
